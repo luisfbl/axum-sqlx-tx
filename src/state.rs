@@ -42,3 +42,7 @@ impl<DB: Marker> FromRef<State<DB>> for sqlx::Pool<DB::Driver> {
         input.pool.clone()
     }
 }
+
+impl<DB: Marker> FromRef<State<DB>> for () {
+    fn from_ref(_: &State<DB>) {}
+}
